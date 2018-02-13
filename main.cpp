@@ -132,7 +132,7 @@ bool writeImage(const uint32_t& width, const uint32_t& height, std::vector<Pixel
 
 Pixelu8 quantize(const Pixelu8& pixel)
 {
-    const float step = 255.f / powf(2.f, bpc);
+    const float step = 255.f / (powf(2.f, bpc) - 1.f);
 
     Pixelu8 p;
     p.r = step * roundf(pixel.r / step);
